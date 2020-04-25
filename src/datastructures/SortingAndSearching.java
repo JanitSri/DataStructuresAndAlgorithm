@@ -67,38 +67,18 @@ public class SortingAndSearching {
             }
             
             if (key > m_array[mid])
+            {
                 low = mid+1;
+            }
             else
+            {
                 high = mid-1;
+            }
         }
         System.out.println(low + " " + " " + mid + " " + high);
         return -1;
     }
     
-    public boolean addInOrder(int value){
-        this.insertionSort();
-        
-        int low = 0, high = numElements -1, mid;
-        while(low <= high){
-            mid = (low+high) / 2; 
-            if (m_array[mid]==value)
-                return false;
-            
-            if (value > m_array[mid])
-                low = mid+1;
-            else
-                high = mid-1;
-        }
-        
-        for (int i = numElements - 1; i >= low; i--) {
-            m_array[i+1] = m_array[i];
-        }
-        
-        m_array[low] = value;
-        numElements++;
-        return true;
-
-    }
     
     public void mergeSort(){
         mergeSort(m_array, new int[numElements], 0, numElements-1);
